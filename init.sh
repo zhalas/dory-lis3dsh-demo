@@ -25,8 +25,8 @@ fi
 # CTRL_REG3: INT1 enabled, interrupt signal is high
 write_reg 23 48
 
-# this sets ODR
-echo 10 > /sys/devices/f9924000.i2c/i2c-4/4-001e/poll_period_ms
+# CTRL_REG4: ODR: 100Hz, all axis enabled
+write_reg 20 67
 
 # THRS1_1
 write_reg 57 33
