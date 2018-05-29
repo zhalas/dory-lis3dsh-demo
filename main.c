@@ -12,7 +12,7 @@
 #define EV_MSC 0x04
 #define MSC_GESTURE 0x02
 
-#define WAKE_TIME 3
+#define WAKE_TIME 2
 
 #define INPUT_DEVICE "/dev/input/by-path/platform-f9924000.i2c-event"
 
@@ -60,7 +60,7 @@ int event_loop(char *device_name) {
 	while(1) {
 		if (wake_lock_till) {
 			now = time(NULL);
-			if (now > wake_lock_till) {
+			if (now >= wake_lock_till) {
 				turn_display_off();
 				wake_lock_till = 0;
 			}
